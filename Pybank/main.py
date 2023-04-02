@@ -15,7 +15,7 @@ with open(csvpath_input) as input_file:
     next(csvreader)
     months = 0
     totalValue = 0
-    valueNow = 0
+    previousValue = 0
     change = 0
     GIncrease = 0
     incMonth = ''
@@ -26,12 +26,12 @@ with open(csvpath_input) as input_file:
     for row in csvreader:
         months +=1
         totalValue += float(row[1])
-        #Jumping the first row analysis as valueNow variable was declared as 0
-        #Storing the first profit value in the variable valueNow at the end of the loop
-        #In the second row loop the valueNow variable is now the previous profit value
-        if valueNow != 0:
+        #Jumping the first row analysis because previousValue variable was declared as 0
+        #Storing the first profit value in the variable previousValue at the end of the loop
+        #In the second row loop the previousValue variable is now the previous profit value so we can compare.
+        if previousValue != 0:
             #Storing the diference between the actual profit value with the previous one
-            change = float(row[1]) - valueNow
+            change = float(row[1]) - previousValue
             #Storing all diferences in a totalChange variable and saving each one in the diference Dictionary
             totalChange += change
             diference[row[0]] = change
@@ -43,7 +43,7 @@ with open(csvpath_input) as input_file:
             elif change < GDecrease:
                 GDecrease = change
                 decMonth = row[0]
-        valueNow = float(row[1])
+        previousValue = float(row[1])
     #Calculating the average change    
     average_change = totalChange / (months - 1)
 
