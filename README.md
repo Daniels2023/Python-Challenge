@@ -1,6 +1,5 @@
 Financial Analysis
 
-Objective
 The objective of this code is to read a CSV file that contains financial data from Jan-10 to Feb-17 and output a summary report of the data in the CSV file. The summary report includes:
 Total number of months included in the dataset.
 Total amount of "Profit/Losses" over the entire period.
@@ -17,7 +16,6 @@ The results are then printed in the terminal and a new .txt file is created in t
 
 Election Analysis
 
-Objective
 The objective of this code is to read a CSV file that contains data for a local election and output a summary report of the data in the CSV file. The summary report includes:
 Total number of votes.
 A complete list of candidates who received votes.
